@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
+import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
 export default function Weather() {
   const [city, setCity] = useState("");
+  const [displayedCity, setDisplayedCity] = useState("");
   const [loaded, showLoaded] = useState(false);
   const [weather, setWeather] = useState({});
 
   function displayWeather(response) {
     showLoaded(true);
+    setDisplayedCity(city);
     setWeather({
       temperature: Math.round(response.data.main.temp),
       humidity: Math.round(response.data.main.temp),
@@ -68,11 +71,32 @@ export default function Weather() {
   if (loaded) {
     return (
       <div className="weather-app-details weather-app">
+        <div className="landing-page-header-and-icon">
+          <h1>Weather App</h1>
+          <ReactAnimatedWeather
+            icon="CLEAR_DAY"
+            color="#a070a1"
+            size={50}
+            animate={true}
+          />
+          <ReactAnimatedWeather
+            icon="SNOW"
+            color="#a070a1"
+            size={50}
+            animate={true}
+          />
+          <ReactAnimatedWeather
+            icon="CLEAR_NIGHT"
+            color="#a070a1"
+            size={50}
+            animate={true}
+          />
+        </div>
         {form}
         <main>
-          <h1 className="weather-app-city">{city}</h1>
           <div className="weather-app-data">
             <div className="weather-app-details">
+              <h1 className="weather-app-city">{displayedCity}</h1>
               <ul>
                 <li>
                   Humidity: <strong>{weather.humidity}%</strong>{" "}
@@ -103,7 +127,27 @@ export default function Weather() {
   } else {
     return (
       <div className="weather-app-details weather-app">
-        <h1>Weather App</h1>
+        <div className="landing-page-header-and-icon">
+          <h1>Weather App</h1>
+          <ReactAnimatedWeather
+            icon="CLEAR_DAY"
+            color="#a070a1"
+            size={50}
+            animate={true}
+          />
+          <ReactAnimatedWeather
+            icon="SNOW"
+            color="#a070a1"
+            size={50}
+            animate={true}
+          />
+          <ReactAnimatedWeather
+            icon="CLEAR_NIGHT"
+            color="#a070a1"
+            size={50}
+            animate={true}
+          />
+        </div>
         {form}
         {message}
       </div>
