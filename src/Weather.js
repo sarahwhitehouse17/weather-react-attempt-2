@@ -46,7 +46,22 @@ export default function Weather() {
 
   let message = (
     <p>
-      Coded by Sarah Whitehouse open-sourced on GitHub and hosted on Netlify
+      Coded by Sarah Whitehouse open-sourced on {""}
+      <a
+        href="https://github.com/sarahwhitehouse17/weather-react-attempt-2"
+        rel="noreferrer"
+        target="_blank"
+      >
+        GitHub {""}
+      </a>
+      and hosted on{" "}
+      <a
+        href="https://weatherappreact17.netlify.app/"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Netlify
+      </a>
     </p>
   );
 
@@ -71,7 +86,11 @@ export default function Weather() {
               </ul>
             </div>
             <div className="weather-app-container">
-              <img src={weather.icon} className="weather-app-icon" alt="weather-icon-image" />
+              <img
+                src={weather.icon}
+                className="weather-app-icon"
+                alt="weather-icon-image"
+              />
               <h2 className="weather-app-temperature">
                 {weather.temperature}°C
               </h2>
@@ -84,6 +103,7 @@ export default function Weather() {
   } else {
     return (
       <div className="weather-app-details weather-app">
+        <h1>Weather App</h1>
         {form}
         {message}
       </div>
