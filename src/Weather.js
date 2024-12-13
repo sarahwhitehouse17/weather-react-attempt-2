@@ -71,7 +71,7 @@ export default function Weather() {
               </ul>
             </div>
             <div className="weather-app-container">
-              <img src={weather.icon} className="weather-app-icon" />
+              <img src={weather.icon} className="weather-app-icon" alt="weather-icon-image" />
               <h2 className="weather-app-temperature">
                 {weather.temperature}°C
               </h2>
